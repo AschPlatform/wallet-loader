@@ -15,7 +15,6 @@ public class Program extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
         Parent root = FXMLLoader.load(getClass().getResource("upgrade.fxml"));
         Scene loaderScene = new Scene(root);
         loaderScene.setFill(Color.TRANSPARENT);
@@ -27,7 +26,7 @@ public class Program extends Application {
         primaryStage.show();
     }
 
-    protected static void generateAssembly(){
+    private static void generateAssembly(){
         try {
             WalletAssembly wa = WalletAssembly.fromDefaultFile().orElse(WalletAssembly.empty());
             wa.updateArtifacts();
