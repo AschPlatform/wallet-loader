@@ -4,19 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
 <AnchorPane prefHeight="240" prefWidth="440" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="so.asch.wallet.loader.UpgradeController">
    <children>
-       <Rectangle layoutX="20" layoutY="20" styleClass="secret-verification-background" width="400" height="200" />
+       <Rectangle height="200" layoutX="20" layoutY="20" styleClass="secret-verification-background" width="400" />
        <Pane layoutX="20" layoutY="20">
-          <Label styleClass="label-sub-title" prefWidth="400" alignment="CENTER" layoutY="8.0" text="钱包更新" />
-          <Label fx:id="labProgress" styleClass="label-sub-text" layoutX="20.0" layoutY="56.0" text="正在检查升级，请稍候" />
-          <ProgressBar fx:id="prgUpgrade" styleClass="progress" layoutX="20.0" layoutY="95.0" prefHeight="20.0" prefWidth="290.0" progress="0.0" />
-          <Label fx:id="labPercentage" styleClass="label" alignment="CENTER_LEFT" layoutX="320.0" layoutY="95.0" prefHeight="24.0" prefWidth="60.0" text=" 0%" textAlignment="LEFT" />
-          <Button fx:id="btnCancel" layoutX="140.0" styleClass="cancel-button" layoutY="140.0" mnemonicParsing="false" text="取消" />
+          <Label alignment="CENTER" layoutY="8.0" prefWidth="400" styleClass="label-sub-title" text="%KEY_UPDATEBOX_TITLE_UPDATE" />
+          <Label fx:id="labProgress" layoutX="20.0" layoutY="56.0" styleClass="label-sub-text" text="%KEY_UPDATEBOX_CHEKINGUPDATE" />
+          <ProgressBar fx:id="prgUpgrade" layoutX="20.0" layoutY="95.0" prefHeight="20.0" prefWidth="290.0" progress="0.0" styleClass="progress" />
+          <Label fx:id="labPercentage" alignment="CENTER_LEFT" layoutX="320.0" layoutY="95.0" prefHeight="24.0" prefWidth="60.0" styleClass="label" text=" 0%" textAlignment="LEFT" />
+          <Button fx:id="btnCancel" layoutX="140.0" layoutY="140.0" mnemonicParsing="false" styleClass="cancel-button" text="%KEY_BTN_LABEL_CANCEL" />
        </Pane>
    </children>
 </AnchorPane>

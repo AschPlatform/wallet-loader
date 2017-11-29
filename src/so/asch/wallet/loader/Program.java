@@ -32,7 +32,7 @@ public class Program extends Application {
             wa.updateArtifacts();
             wa.saveToDefaultFile();
 
-            System.out.print("生成'" + WalletAssembly.WALLET_ASSEMBLY_FILE + "'成功");
+            System.out.print("generate'" + WalletAssembly.WALLET_ASSEMBLY_FILE + "'success");
         }
         catch (Exception ex){
             ex.printStackTrace();
