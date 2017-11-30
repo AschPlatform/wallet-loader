@@ -1,5 +1,8 @@
 package so.asch.wallet.loader;
 
+import java.util.Arrays;
+import java.util.ResourceBundle;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,13 +12,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.util.Arrays;
-
 public class Program extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("upgrade.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("upgrade.fxml"),
+            ResourceBundle.getBundle("lang"));
         Scene loaderScene = new Scene(root);
         loaderScene.setFill(Color.TRANSPARENT);
         loaderScene.setUserAgentStylesheet(Program.class.getResource("style.css").toString());

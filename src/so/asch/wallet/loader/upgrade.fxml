@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="240" prefWidth="440" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="so.asch.wallet.loader.UpgradeController">
+<AnchorPane prefHeight="240" prefWidth="440" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="so.asch.wallet.loader.UpgradeController">
    <children>
        <Rectangle height="200" layoutX="20" layoutY="20" styleClass="secret-verification-background" width="400" />
        <Pane layoutX="20" layoutY="20">
