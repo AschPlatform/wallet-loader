@@ -1,5 +1,7 @@
 package so.asch.wallet.loader;
 
+import java.util.Arrays;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,13 +11,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.util.Arrays;
-
 public class Program extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("upgrade.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("upgrade.fxml"),
+            LanguageContant.getResourceBundle());
         Scene loaderScene = new Scene(root);
         loaderScene.setFill(Color.TRANSPARENT);
         loaderScene.setUserAgentStylesheet(Program.class.getResource("style.css").toString());
@@ -32,7 +33,7 @@ public class Program extends Application {
             wa.updateArtifacts();
             wa.saveToDefaultFile();
 
-            System.out.print("生成'" + WalletAssembly.WALLET_ASSEMBLY_FILE + "'成功");
+            System.out.print("generate'" + WalletAssembly.WALLET_ASSEMBLY_FILE + "'success");
         }
         catch (Exception ex){
             ex.printStackTrace();

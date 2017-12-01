@@ -66,7 +66,7 @@ public class UpgradeController {
     }
 
     private void launch(){
-        Platform.runLater(()-> updateProgress("正在加载钱包", 100));
+        Platform.runLater(()-> updateProgress(LanguageContant.KEY_UPDATEBOX_LOADING_WALLET, 100));
 
         WalletAssembly wa = WalletAssembly.fromDefaultFile().orElse(WalletAssembly.empty());
         Path walletJarPath = Paths.get(Utilities.getJarDir(WalletAssembly.class));
@@ -113,7 +113,7 @@ public class UpgradeController {
             int times = 10;
             String[] tmp = new String[]{".","..","..."};
             while( times -- >0 && !future.isDone()){
-                String info = "正在启动钱包" + tmp[times % 3];
+                String info = LanguageContant.KEY_UPDATEBOX_STARTING_WALLET + tmp[times % 3];
                 Platform.runLater(()->updateProgress(info, 100));
                 Thread.sleep(500);
             }

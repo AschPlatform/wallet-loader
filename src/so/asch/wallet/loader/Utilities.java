@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Utilities {
+
     public static String getJarDir(Class clazz) {
         String executePath = clazz.getProtectionDomain().getCodeSource().getLocation().getPath();
         java.io.File file = new java.io.File(executePath);
@@ -44,7 +45,7 @@ public class Utilities {
 
     private static void errorDialog(String error){
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("错误");
+        alert.setTitle(LanguageContant.KEY_UPDATEBOX_ALERT_ERROR);
         alert.setHeaderText(error);
 
         alert.showAndWait();
@@ -81,7 +82,7 @@ public class Utilities {
         }
         catch (Exception ex){
             ex.printStackTrace();
-            errorDialog("启动钱包失败，请检查程序是否完整");
+            errorDialog(LanguageContant.KEY_UPDATEBOX_DIALOG_START_FAIL);
             return null;
         }
     }

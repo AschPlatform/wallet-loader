@@ -137,9 +137,9 @@ public class DefaultUpgrader implements Upgrader {
 
         try {
             for (Artifact a : artifacts) {
-                setCurrentStep("正在下载"+a.getName());
+                setCurrentStep(LanguageContant.KEY_UPDATEBOX_PROGRESS_DOWNLOADING +a.getName());
                 downloadArtifact(a.getName(), totalSize, true);
-                setCurrentStep(a.getName()+"下载成功");
+                setCurrentStep(a.getName()+ LanguageContant.KEY_UPDATEBOX_PROGRESS_DOWNLOADED);
             }
 
             return true;
@@ -165,7 +165,7 @@ public class DefaultUpgrader implements Upgrader {
 
     private boolean replaceArtifacts(List<String> artifacts){
         try {
-            setCurrentStep("正在应用更新");
+            setCurrentStep(LanguageContant.KEY_UPDATEBOX_PROGRESS_APPLAYING_UPDATE);
             int count = 0;
             for (String a : artifacts) {
                 Files.copy(getCacheArtifactPath(a), getLocalArtifactPath(a), StandardCopyOption.REPLACE_EXISTING);
@@ -205,7 +205,7 @@ public class DefaultUpgrader implements Upgrader {
 
     @Override
     public boolean checkUpgradable() {
-        setCurrentStep("正在检查更新");
+        setCurrentStep(LanguageContant.KEY_UPDATEBOX_PROGRESS_CHECKING_UPDATE);
         return generateUpgradeList().size() > 0;
     }
 
@@ -214,18 +214,18 @@ public class DefaultUpgrader implements Upgrader {
     public boolean upgrade() {
         List<Artifact> upgradeList = generateUpgradeList();
         if (upgradeList == null || upgradeList.size() == 0){
-            setCurrentStep("检查完毕，无需更新");
+            setCurrentStep(LanguageContant.KEY_UPDATEBOX_PROGRESS_NEED_NOT);
             return true;
         }
         else  if (!downloadArtifacts(upgradeList)){
-            upgradeFailed("下载更新失败");
+            upgradeFailed(LanguageContant.KEY_UPDATEBOX_PROGRESS_DOWNLOAD_UPDATE_FILE_FAIL);
             return false;
         }
 
         List<String> artifacts = upgradeList.stream().map(a->a.getName()).collect(Collectors.toList());
         artifacts.add(WalletAssembly.WALLET_ASSEMBLY_FILE);
         if (artifacts.size()> 0 && !replaceArtifacts(artifacts)){
-            upgradeFailed("应用更新文件失败");
+            upgradeFailed(LanguageContant.KEY_UPDATEBOX_PROGRESS_APPLY_UPDATE_FAIL);
             return false;
         }
 
